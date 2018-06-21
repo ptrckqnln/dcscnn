@@ -68,7 +68,7 @@ def train(model, flags, trial):
 	model.init_epoch_index()
 	model_updated = True
 	min_mse = None
-	mse, psnr = 0
+	mse, psnr = 0, 0
 
 	while model.lr > flags.end_lr:
 

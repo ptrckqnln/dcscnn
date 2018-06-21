@@ -86,7 +86,7 @@ class BatchDataSets:
 		""" Build batch images and. """
 
 		print("Building batch images for %s..." % self.batch_dir)
-		filenames = util.get_files_in_directory(data_dir)
+		filenames = random.shuffle(util.get_files_in_directory(data_dir))
 		images_count = 0
 
 		util.make_dir(self.batch_dir)
