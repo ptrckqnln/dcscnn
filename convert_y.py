@@ -37,6 +37,7 @@ def main(not_parsed_args):
 
 		new_filename = target_dir + filename
 		util.save_image(new_filename + ".bmp", org_image)
+		os.remove(file_path)
 
 
 if __name__ == '__main__':

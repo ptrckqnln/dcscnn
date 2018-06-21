@@ -68,12 +68,16 @@ def train(model, flags, trial):
 	model.init_epoch_index()
 	model_updated = True
 	min_mse = None
+	mse, psnr = 0
 
 	while model.lr > flags.end_lr:
 
 		model.build_input_batch()
 		model.train_batch()
 
+		model.print_status(mse, psnr, log=model_updated)
+		model.log_to_tensorboard(test_filenames[0], psnr, save_meta_data=model_updated)		
+		
 		if model.training_step * model.batch_num >= model.training_images:
 
 			# one training epoch finished
