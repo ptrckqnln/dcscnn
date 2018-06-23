@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <title>DCSCN Examples</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script>
+        const switchImg = () => {
+            let imgDiv = $(".image")
+
+            setTimeout(() => {
+                if (imgDiv.hasClass("result")) imgDiv.removeClass("result")
+                else imgDiv.addClass("result")
+                switchImg()
+            }, 1000)
+        }
+
+        $(document).ready(() => {switchImg()})
+    </script>
+    <style>
+        .image {
+            padding-bottom: 20px;
+        }
+        .image:first-child {
+            display: none;
+        }
+        .image:last-child {
+            display: block;
+        }
+        .image.result:first-child {
+            display: block;
+        }
+        .image.result:last-child {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="image">
+        <img src="assets/image_result.png"/>
+        <img src="assets/image.png"/>
+    </div>
+
+    <div class="image">
+        <img src="assets/image2_result.png"/>
+        <img src="assets/image2.png"/>
+    </div>
+
+</body>
+
+</html>
