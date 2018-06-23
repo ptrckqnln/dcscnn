@@ -86,7 +86,7 @@ class BatchDataSets:
 		""" Build batch images and. """
 
 		print("Building batch images for %s..." % self.batch_dir)
-		filenames = util.get_files_in_directory(data_dir)
+		filenames = random.shuffle(util.get_files_in_directory(data_dir))
 		images_count = 0
 
 		util.make_dir(self.batch_dir)
@@ -321,12 +321,12 @@ class DynamicDataSets:
 		height, width = image.shape[0:2]
 
 		load_batch_size = self.batch_image_size * self.scale
-		if height < load_batch_size or width < load_batch_size:
+
+		try:
+			y = random.randrange(height - load_batch_size)
+			x = random.randrange(width - load_batch_size)
+			image = image[y:y + load_batch_size, x:x + load_batch_size, :]
+			image = build_input_image(image, channels=self.channels, convert_ycbcr=True)
+			return image
+		except ValueError:
 			return None
-
-		y = random.randrange(height - load_batch_size)
-		x = random.randrange(width - load_batch_size)
-		image = image[y:y + load_batch_size, x:x + load_batch_size, :]
-		image = build_input_image(image, channels=self.channels, convert_ycbcr=True)
-
-		return image

@@ -8,6 +8,8 @@ batch_data/
 tf_log/
 data/yang_bsd_8
 data/div2k
+data/vgg2_y
+data/vgg2_y_25000
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
