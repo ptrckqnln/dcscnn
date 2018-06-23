@@ -5,11 +5,15 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script>
-        const switchImg = () => {
-            setTimeout(() => {
-                $(".image_container").each(() => {
-                    if ($(this).hasClass("result")) $(this).removeClass("result")
-                    else $(this).addClass("result")
+        function switchImg() {
+            setTimeout(function() {
+                $(".image_container").each(function() {
+                    if ($(this).hasClass("result")) {
+                        $(this).removeClass("result")
+                    }
+                    else {
+                        $(this).addClass("result")
+                    }
                 })
                 switchImg()
             }, 1000)
