@@ -6,11 +6,13 @@
         crossorigin="anonymous"></script>
     <script>
         const switchImg = () => {
-            let imgDiv = $(".image")
+            let imgDivs = $(".image")
 
             setTimeout(() => {
-                if (imgDiv.hasClass("result")) imgDiv.removeClass("result")
-                else imgDiv.addClass("result")
+                imgDivs.each(() => {
+                    if ($(this).hasClass("result")) $(this).removeClass("result")
+                    else $(this).addClass("result")
+                })
                 switchImg()
             }, 1000)
         }
