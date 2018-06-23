@@ -6,10 +6,8 @@
         crossorigin="anonymous"></script>
     <script>
         const switchImg = () => {
-            let imgDivs = $(".image")
-
             setTimeout(() => {
-                imgDivs.each(() => {
+                $(".image_container").each(() => {
                     if ($(this).hasClass("result")) $(this).removeClass("result")
                     else $(this).addClass("result")
                 })
@@ -17,22 +15,28 @@
             }, 1000)
         }
 
-        $(document).ready(() => {switchImg()})
+        $(document).ready(() => {
+            switchImg()
+        })
     </script>
     <style>
-        .image {
+        .image_container {
             padding-bottom: 20px;
         }
-        .image:first-child {
+
+        .image_container > img:first-child {
             display: none;
         }
-        .image:last-child {
+
+        .image_container > img:last-child {
             display: block;
         }
-        .image.result:first-child {
+
+        .image_container.result > img:first-child {
             display: block;
         }
-        .image.result:last-child {
+
+        .image_container.result > img:last-child {
             display: none;
         }
     </style>
@@ -40,14 +44,14 @@
 
 <body>
 
-    <div class="image">
-        <img src="assets/image_result.png"/>
-        <img src="assets/image.png"/>
+    <div class="image_container">
+        <img src="assets/image_result.png" />
+        <img src="assets/image.png" />
     </div>
 
-    <div class="image">
-        <img src="assets/image2_result.png"/>
-        <img src="assets/image2.png"/>
+    <div class="image_container">
+        <img src="assets/image2_result.png" />
+        <img src="assets/image2.png" />
     </div>
 
 </body>
